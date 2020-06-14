@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_main"
+        android:icon="@drawable/action_main"
+        android:title="Bản đồ"/>
+
+    <item
+        android:id="@+id/navigation_cash"
+        android:icon="@drawable/action_cash"
+        android:title="Tài khoản"/>
+
+    <item
+    android:id="@+id/navigation_user"
+    android:icon="@drawable/action_account"
+    android:title="Người dùng"/>
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/action_setting"
+        android:title="Cài đặt"/>
+
+</menu>

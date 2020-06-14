@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BarnCodeActivity">
+    <include android:id="@+id/navigator_back" android:layout_width="match_parent" android:layout_height="wrap_content"
+        layout="@layout/navigator_back"></include>
+    <ImageView
+        android:layout_marginTop="22dp"
+        android:id="@+id/imgBarnCode"
+        android:layout_below="@id/navigator_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ImageView>
+    <TextView
+        android:id="@+id/titleTV"
+        android:layout_marginTop="22dp"
+            android:layout_marginLeft="22dp"
+        android:text="Hãy đưa mã này cho nhân viên thnah toán"
+        android:layout_below="@+id/imgBarnCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <LinearLayout
+        android:layout_marginRight="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_below="@id/titleTV"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:text="Mã tự động làm mới sau "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/tvCoundDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+    </LinearLayout>
+</RelativeLayout>

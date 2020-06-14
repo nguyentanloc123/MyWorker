@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_marginTop="22dp"
+        android:id="@+id/title1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Danh sách thiết bị đã đăng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <EditText
+        android:paddingRight="10dp"
+        android:drawableRight="@drawable/icon_filter"
+        android:hint="TÌm đồ dùng"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/searchicon"
+        android:layout_marginRight="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_below="@id/title1"
+        android:id="@+id/searchView"
+        android:background="@drawable/searchview"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"></EditText>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/searchView"
+        android:id="@+id/recyceviewWorker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

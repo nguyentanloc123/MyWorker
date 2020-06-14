@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyWorker</string>
+    <string name="usernameEmail"></string>
+    <string name="usernameUser"></string>
+    <string name="usernamePass"></string>
+    <string name="keyID"></string>
+</resources>

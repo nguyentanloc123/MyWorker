@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListDoVatSua">
+    <include android:id="@+id/include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/navigator_back"></include>
+    <TextView
+        android:gravity="center"
+        android:text="Chọn đồ cần sửa"
+        android:textColor="#ADAAAA"
+        android:textSize="18sp"
+        android:layout_below="@+id/include"
+        android:id="@+id/txtdocansua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <EditText
+        android:hint="TÌm đồ dùng"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/searchicon"
+        android:layout_marginRight="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_below="@id/txtdocansua"
+        android:id="@+id/searchView"
+        android:background="@drawable/searchview"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"></EditText>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyceviewWorker"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>
