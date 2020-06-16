@@ -82,6 +82,10 @@ class FragmentAccount : Fragment() {
         val cardViewDoAn = rootView.findViewById<CardView>(R.id.cardView2)
         val cardViewXebuyt = rootView.findViewById<CardView>(R.id.cardView3)
         val cardViewXang = rootView.findViewById<CardView>(R.id.cardView4)
+        val btnChuyen = rootView.findViewById<Button>(R.id.btnChuyen)
+        btnChuyen.setOnClickListener {
+
+        }
 
         cardViewDoAn.setOnClickListener {
             startActivity(Intent(this.requireContext(),BarnCodeActivity::class.java))
