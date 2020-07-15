@@ -22,10 +22,6 @@ import com.google.firebase.ktx.Firebase
 
 class FragmentUser : Fragment()
 {
-
-
-
-
  //   private lateinit
     private lateinit var loclist : List<UserWorkAdd>
     private lateinit var linearLayoutManager: LinearLayoutManager
@@ -44,31 +40,6 @@ class FragmentUser : Fragment()
         GetDataFromFirebase().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
         database = Firebase.database.reference
         val itemList:MutableList<UserWorkAdd> = ArrayList()
-
-        //var tempList:List<UserWorkAdd>
-//        for (i in 0..100)
-//        {
-//            var userw= UserWorkAdd(true,
-//                "ádasd",
-//                i.toString(),
-//                "đâsd",
-//                "đâsdasdas",
-//                "ádsadasdas",
-//                "đasadasda",
-//                "ádsadads",
-//                "đâsd",
-//                "dsadsad")
-//             //   loclist.toMutableList().add(userw)
-//           itemList.add(userw)
-//
-//        }
-//        for ( i in itemList)
-//        {
-//            //Log.d("item",i.dovatcansua)
-//
-//        }
-
-
 
 
         val usersdRef: DatabaseReference = database.child("users")

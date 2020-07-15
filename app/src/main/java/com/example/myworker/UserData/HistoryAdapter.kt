@@ -92,9 +92,9 @@ class HistoryAdapter( private val dataSlides: List<UserWorkAdd>) : RecyclerView.
 
         fun bind(dataSlide: UserWorkAdd)
         {
-            txtTenSanPham.setText(dataSlide.dovatcansua)
+           // txtTenSanPham.setText(dataSlide.dovatcansua)
             txtNgayThang.setText(dataSlide.dateDanng)
-           Log.d("dataloc",dataSlide.dovatcansua)
+        //   Log.d("dataloc",dataSlide.dovatcansua)
 
         }
     }

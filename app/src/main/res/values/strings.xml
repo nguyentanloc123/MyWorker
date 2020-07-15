@@ -1,7 +1,20 @@
 <resources>
     <string name="app_name">MyWorker</string>
+    <string name="selected_item">Selected item:</string>
     <string name="usernameEmail"></string>
     <string name="usernameUser"></string>
+    <string name="usernameTho"></string>
     <string name="usernamePass"></string>
+    <string name="usernameSdt"></string>
     <string name="keyID"></string>
+    <string name="idTho"></string>
+    <string name="emailTho"></string>
+    <string name="usernameCheck"></string>
+    <string-array name="Languages">
+        <item>Thợ sửa nước</item>
+        <item>Thợ sửa điện</item>
+        <item>Thợ sửa máy giặt</item>
+        <item>Thợ sửa máy lạnh</item>
+    </string-array>
+    <string name="tenloaisuachua"></string>
 </resources>

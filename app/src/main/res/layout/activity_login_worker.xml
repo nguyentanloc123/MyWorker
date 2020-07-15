@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent" android:layout_width="match_parent"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent" android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginWorkerActivity">
@@ -50,7 +50,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:backgroundTint="@color/colorPrimary"
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,10 +59,11 @@
         android:layout_marginEnd="22dp"
         android:layout_marginRight="22dp"
         android:layout_weight="1"
+        android:backgroundTint="@color/colorPrimary"
         android:drawableLeft="@drawable/iconid"
         android:drawablePadding="10dp"
         android:ellipsize="end"
-        android:hint="Nhập chứng minh nhân dân"
+        android:hint="Email"
         android:inputType="text"
         android:maxLines="1"
         android:paddingLeft="10dip"
@@ -75,8 +75,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"></EditText>
 
     <EditText
-        android:backgroundTint="@color/colorPrimary"
-        android:drawableRight="@drawable/hidepass"
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,10 +84,12 @@
         android:layout_marginEnd="22dp"
         android:layout_marginRight="22dp"
         android:layout_weight="1"
+        android:backgroundTint="@color/colorPrimary"
         android:drawableLeft="@drawable/iconlock"
+        android:drawableRight="@drawable/hidepass"
         android:drawablePadding="10dp"
         android:ellipsize="end"
-        android:hint="Nhập password"
+        android:hint="Password"
         android:inputType="textPassword"
         android:maxLines="1"
         android:paddingLeft="10dip"

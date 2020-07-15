@@ -5,6 +5,7 @@
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -19,19 +20,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainTho"></activity>
-        <activity android:name=".MainMap" />
+        <activity android:name=".MainMap"></activity>
+        <activity android:name=".ChonSuaActivity" />
+        <activity android:name=".XacMinhThoActivity" />
+        <activity android:name=".OTPActivity" />
+        <activity android:name=".TimThoActivity" />
+        <activity android:name=".Mainthongtin" />
+        <activity android:name=".RegActivity" />
+        <activity android:name=".QrcodeTho" />
+        <activity android:name=".LoginWorkerActivity" />
         <activity android:name=".ThongTinLienHe" />
         <activity android:name=".BarnCodeActivity" />
         <activity android:name=".NapTienVaoVi" />
         <activity android:name=".AddDoVatSua" />
+        <activity android:name=".MapTho" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".RegActivity" />
+        <activity android:name=".DangKiThoActivity" />
         <activity android:name=".XacThucSDTActivity" />
-        <activity android:name=".LoginWorkerActivity" />
+        <activity android:name=".MainTho" />
         <activity android:name=".LoginUserActivity" />
         <activity android:name=".ListDoVatSua" />
-        <activity android:name=".LoginUser">
+        <activity android:name=".MethodLoginAnReg">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

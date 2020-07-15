@@ -68,19 +68,19 @@ class AddDoVatSua : AppCompatActivity() {
         val sharedPref = getSharedPreferences("", Context.MODE_PRIVATE)
         val userNameLogin = sharedPref.getString(getString(R.string.usernameUser), "")
         val keyID = sharedPref.getString(getString(R.string.keyID),"")
-        val thogntinsua = UserWorkAdd(iddocansua,false,editName.text?.toString(),
-            edtDoCanSua.text?.toString(),
-            edtTinhTrang.text?.toString(),
-            edtSDT.text?.toString(),
-        edtVitriHienTai.text?.toString(),
-        lat.toString(), lng.toString(), currentDate+" "+currentTime,"")
+//        val thogntinsua = UserWorkAdd(iddocansua,false,editName.text?.toString(),
+//            edtDoCanSua.text?.toString(),
+//            edtTinhTrang.text?.toString(),
+//            edtSDT.text?.toString(),
+//        edtVitriHienTai.text?.toString(),
+//        lat.toString(), lng.toString(), currentDate+" "+currentTime,"")
         with (sharedPref.edit()) {
             putString(getString(R.string.keyID),key.toString())
             commit()
         }
 
 
-        database.child("users").child(userNameLogin.toString()).child("thongtindodung").child(key.toString()).setValue(thogntinsua)
+    //    database.child("users").child(userNameLogin.toString()).child("thongtindodung").child(key.toString()).setValue(thogntinsua)
     }
 
 

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapTho">
+    <include layout="@layout/navigator_back"
+        android:layout_height="wrap_content"
+        android:id="@+id/navigator_back"
+        android:layout_width="match_parent"></include>
+    <LinearLayout
+        android:id="@+id/cointanier1"
+        android:layout_marginLeft="22dp"
+        android:orientation="vertical"
+        android:layout_below="@id/navigator_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:text="Người đăng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:textSize="14sp"
+            android:text="Lộc đẹp trai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+    </LinearLayout>
+    <LinearLayout
+
+        android:id="@+id/container2"
+        android:layout_margin="22dp"
+        android:layout_below="@id/cointanier1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:maxLines="3"
+        android:text="An điền bến cát, bình duong"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+    <ImageView
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/navigation"
+        android:layout_width="50dp"
+        android:layout_height="50dp"></ImageView>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/mapWorker"
+        android:layout_below="@id/container2"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"></FrameLayout>
+    <LinearLayout
+        android:id="@+id/container3"
+        android:background="@drawable/bglistbutton"
+        android:layout_below="@id/mapWorker"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_gravity="center"
+            android:background="@drawable/ic_baseline_call_24"
+            android:layout_width="50dp"
+            android:layout_height="50dp"></ImageView>
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="#fff"
+
+            android:text="CALL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <View android:background="#000" android:layout_width="1dp" android:layout_height="match_parent"></View>
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center"
+
+                android:background="@drawable/ic_baseline_message_24"
+                android:layout_width="50dp"
+                android:layout_height="50dp"></ImageView>
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="#fff"
+
+                android:text="CHAT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <View android:background="#000" android:layout_width="1dp" android:layout_height="match_parent"></View>
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_gravity="center"
+
+                android:layout_width="50dp"
+                android:layout_height="50dp"></androidx.appcompat.widget.SwitchCompat>
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:text="TÌNH TRẠNG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+    </LinearLayout>
+    <View android:layout_below="@id/container3" android:id="@+id/viewe" android:background="#000" android:layout_width="match_parent" android:layout_height="1dp"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewe"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/bglistbutton"
+        android:padding="10dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/buttonpickup"
+            android:text="Chọn sửa"
+            android:textColor="#fff"></Button>
+    </LinearLayout>
+
+
+</RelativeLayout>

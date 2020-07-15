@@ -1,41 +1,32 @@
 package com.example.myworker.FragmentContanier
+import android.content.Context
 import android.content.Intent
 import android.location.Address
-import android.content.pm.PackageManager
 import android.location.Geocoder
-import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import com.example.myworker.Contanst.ReturnCallBack
-import com.example.myworker.LoginUser
+import com.example.myworker.Mainthongtin
 import com.example.myworker.R
 import com.example.myworker.ThongTinLienHe
 import com.example.myworker.UserData.UserWorkAdd
-import com.example.myworker.UserData.WorkerData
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_login_worker.*
 import java.io.IOException
 import java.text.DecimalFormat
 
@@ -44,8 +35,7 @@ class FragmentMain : Fragment(), GoogleMap.OnMarkerClickListener {
     private lateinit var database: DatabaseReference
     private lateinit var mMap: GoogleMap
     private var thongtin: List<UserWorkAdd> = ArrayList()
-    // private val latMutableLiveData: <MutableLiveDataDouble>  = MutableLiveData<Double>()
-    // private val latMutableLiveData :  ArrayList<MutableLiveData<Double>> = ArrayList()
+
     private val lngMutableLiveData = MutableLiveData<Double>()
     private val latlngs: ArrayList<LatLng> = ArrayList()
     private val temptest: ArrayList<Double> = ArrayList()
@@ -68,58 +58,85 @@ class FragmentMain : Fragment(), GoogleMap.OnMarkerClickListener {
     ): View? {
         //return inflater.inflate(R.layout.homeframent,container,false)
         //  fusedLocationClient = LocationServices.getFusedLocationProviderClient()
+
         val rootView = inflater.inflate(R.layout.homeframent, container, false)
-        database = Firebase.database.reference
-        fusedLocationClient =
-            LocationServices.getFusedLocationProviderClient(this.requireActivity())
-        val mapFragment =
-            childFragmentManager.findFragmentById(R.id.mapView) as SupportMapFragment?
-         Log.d("loca","adasdadasda")
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener { location: Location ->
-                Log.d("location", location.toString())
-                //   tempLocation.latitude = location.latitude
-                lat = location.latitude
-                lng = location.longitude
-                distanceBetween = LatLng(lat, lng)
+        val sharedPref = this.requireActivity().getSharedPreferences("", Context.MODE_PRIVATE)
+        val usernameUser = sharedPref.getString(getString(R.string.usernameUser), "loc dep trai")
 
-            }
-        mapFragment?.getMapAsync { p0 ->
-            if (p0 != null) {
-                mMap = p0
-                val usersdRef: DatabaseReference = database.child("users")
-                val eventListener: ValueEventListener = object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            for (ds in dataSnapshot.children) {
-                                val post = ds.child("thongtindodung")
-                                for (loc in post.children)
-                                {
-                                    var postTemp = loc.getValue<UserWorkAdd>(UserWorkAdd::class.java)!!
-                                    Log.d("loc", postTemp.toString())
-                                    addd(postTemp)
+        val btnOngNuoc = rootView.findViewById<ImageView>(R.id.btnOngNuoc)
+        val btnODien = rootView.findViewById<ImageView>(R.id.btnODien)
+        val userName = rootView.findViewById<TextView>(R.id.txtUserTho)
+        userName.setText(usernameUser)
 
-                                }
-                            }
-                            countDownTime++
+        btnOngNuoc.setOnClickListener {
+            Toast.makeText(this.requireActivity(),"click",Toast.LENGTH_LONG).show()
+            val intent = Intent(this.requireActivity(), Mainthongtin::class.java)
+            intent.putExtra("id",0)
+            startActivity(intent)
 
-//                            lng =ds.child("thongtindodung").getValue<UserWorkAdd>(UserWorkAdd::class.java)!!.lngg!!.toDouble()
-//                            Log.d("loc",lat.toString()+ " "+ lng.toString())
-//                            lngMutableLiveData.postValue(lat)
-                        }
-                    }
-
-                    override fun onCancelled(databaseError: DatabaseError) {
-                    }
-                }
-                usersdRef.addValueEventListener(eventListener)
-
-                Log.d("loc", "123")
-                mMap.setOnMarkerClickListener(this)
-
-
-            }
         }
+        btnODien.setOnClickListener {
+            Toast.makeText(this.requireActivity(),"click",Toast.LENGTH_LONG).show()
+            val intent = Intent(this.requireActivity(), Mainthongtin::class.java)
+            intent.putExtra("id",1)
+            startActivity(intent)
+
+        }
+        database = Firebase.database.reference
+
+
+
+
+//        fusedLocationClient =
+//            LocationServices.getFusedLocationProviderClient(this.requireActivity())
+//        val mapFragment =
+//            childFragmentManager.findFragmentById(R.id.mapView) as SupportMapFragment?
+//         Log.d("loca","adasdadasda")
+//        fusedLocationClient.lastLocation
+//            .addOnSuccessListener { location: Location ->
+//                Log.d("location", location.toString())
+//                //   tempLocation.latitude = location.latitude
+//                lat = location.latitude
+//                lng = location.longitude
+//                distanceBetween = LatLng(lat, lng)
+//
+//            }
+//        mapFragment?.getMapAsync { p0 ->
+//            if (p0 != null) {
+//                mMap = p0
+//                val usersdRef: DatabaseReference = database.child("users")
+//                val eventListener: ValueEventListener = object : ValueEventListener {
+//                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                        if (dataSnapshot.exists()) {
+//                            for (ds in dataSnapshot.children) {
+//                                val post = ds.child("thongtindodung")
+//                                for (loc in post.children)
+//                                {
+//                                    var postTemp = loc.getValue<UserWorkAdd>(UserWorkAdd::class.java)!!
+//                                    Log.d("loc", postTemp.toString())
+//                                    addd(postTemp)
+//
+//                                }
+//                            }
+//                            countDownTime++
+//
+////                            lng =ds.child("thongtindodung").getValue<UserWorkAdd>(UserWorkAdd::class.java)!!.lngg!!.toDouble()
+////                            Log.d("loc",lat.toString()+ " "+ lng.toString())
+////                            lngMutableLiveData.postValue(lat)
+//                        }
+//                    }
+//
+//                    override fun onCancelled(databaseError: DatabaseError) {
+//                    }
+//                }
+//                usersdRef.addValueEventListener(eventListener)
+//
+//                Log.d("loc", "123")
+//                mMap.setOnMarkerClickListener(this)
+//
+//
+//            }
+//        }
 
         return rootView;
     }

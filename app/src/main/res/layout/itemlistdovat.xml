@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:cardCornerRadius="12dp">
+        <LinearLayout
+            android:paddingTop="22dp"
+            android:paddingLeft="11dp"
+            android:paddingBottom="22dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <RelativeLayout
+            android:elevation="10dp"
+            android:background="@drawable/rounderimage"
+            android:layout_gravity="center_vertical"
+            android:layout_width="55dp"
+            android:layout_height="55dp">
+            <ImageView
+                android:id="@+id/dovatchua"
+                android:background="@drawable/imglavabo"
+                android:layout_centerInParent="true"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+            </ImageView>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tendovatsua"
+            android:layout_marginLeft="11dp"
+            android:padding="11dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:text="Thông nghẹt lavabo"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"></TextView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:paddingLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:background="@drawable/nhanlist"
+                    android:gravity="right"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/ddd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right"
+                        android:text="Đơn vị tính"
+                        android:textColor="#fff"
+                        android:textSize="11sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/solan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ddd"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right"
+                        android:text="/Lần"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sdp"></TextView>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

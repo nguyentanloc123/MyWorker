@@ -10,8 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bestsoft32.tt_fancy_gif_dialog_lib.TTFancyGifDialog
-import com.example.myworker.LoginUser
-import com.example.myworker.LoginUserActivity
+import com.example.myworker.MethodLoginAnReg
 import com.example.myworker.R
 
 class FragmentSetting : Fragment(){
@@ -39,7 +38,7 @@ class FragmentSetting : Fragment(){
                         sharedPref.edit().clear()
                         commit()
                     }
-                    startActivity(Intent(this.requireActivity(), LoginUser::class.java))
+                    startActivity(Intent(this.requireActivity(), MethodLoginAnReg::class.java))
 
                 }
                 .OnNegativeClicked {

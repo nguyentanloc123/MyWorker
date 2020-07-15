@@ -8,3 +8,4 @@ data class UserReg(
     var email: String? = "",
     var passwork: String? = ""
 )
+

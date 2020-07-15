@@ -49,8 +49,8 @@ class ThongTinLienHe : AppCompatActivity() {
                             UserWorkAdd::class.java)!!
                        if(post.latt.toString().equals(message))
                        {
-                           txtnameKhachhang.setText("Tên khách hàng: "+ post.realname)
-                           txtThietbi.setText("Thiết bị: "+ post.dovatcansua)
+                           //txtnameKhachhang.setText("Tên khách hàng: "+ post.realname)
+                         //  txtThietbi.setText("Thiết bị: "+ post.dovatcansua)
                            txtTinhtrang.setText("Tình trạng: "+ post.tinhtranghuhai)
                            txtVitri.setText("Địa chỉ liên hệ: "+ post.diachihientai)
                            txtSdt.setText("Số điện thoại: "+ post.sodienthoai)

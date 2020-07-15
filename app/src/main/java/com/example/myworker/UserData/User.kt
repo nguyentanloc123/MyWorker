@@ -9,7 +9,8 @@ data class User(
     var username: String? = "",
     var email: String? = "",
     var password: String? = "",
-    var lienket: Boolean? = false
+    var lienket: Boolean? = false,
+    var sodienthoai: String? =""
 ){
 
     @Exclude
@@ -17,9 +18,11 @@ data class User(
         return mapOf(
             "username" to username,
             "email" to email,
-            "password" to password
+            "password" to password,
+                "sodienthoai" to sodienthoai
 
         )
     }
 }
+
 

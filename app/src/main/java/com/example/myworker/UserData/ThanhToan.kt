@@ -4,7 +4,7 @@ import java.util.*
 
 data class ThanhToan(
     var IdThanhToan : String? = "",
-var ngayThanhToan: String? = "",
-var loaiThanhToan: Int? = 0,
-var soTienTra: String? = "0"
+    var ngayThanhToan: String? = "",
+    var loaiThanhToan: Int? = 0,
+    var soTienTra: String? = "0"
 )

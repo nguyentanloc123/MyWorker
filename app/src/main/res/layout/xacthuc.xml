@@ -59,7 +59,7 @@
         android:drawablePadding="10dp"
         android:ellipsize="end"
         android:hint="Nhập số điện thoại"
-        android:inputType="textAutoComplete"
+        android:inputType="number"
         android:maxLines="1"
         android:paddingLeft="10dip"
         android:scrollHorizontally="true"
