@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_reg.*
+import java.util.regex.Pattern
 
 
 class RegActivity : AppCompatActivity() ,IMethodLoginAnReg,IValidate{
@@ -69,7 +70,7 @@ class RegActivity : AppCompatActivity() ,IMethodLoginAnReg,IValidate{
                         val user = auth.currentUser
                         Toast.makeText(this,"Đăng kí thành công rồi nhen",Toast.LENGTH_LONG).show()
                         // luu vao database
-                        val userDatabase = User(editusername.text.toString(), editemail.text.toString(),edtpasswork.text.toString(),false,"")
+                        val userDatabase = User(editusername.text.toString(), editemail.text.toString(),edtpasswork.text.toString(),false,edtsodienthoai2.text.toString())
                         database.child("users").child(editusername.text.toString().toString()).setValue(userDatabase)
                         Log.d("txt",editemail.text.toString())
                         Log.d("txt",editusername.text.toString())
@@ -85,7 +86,9 @@ class RegActivity : AppCompatActivity() ,IMethodLoginAnReg,IValidate{
                             putString(getString(R.string.usernamePass),edtpasswork.text.toString())
                             commit()
                         }
-                        val intent: Intent = Intent(this,XacThucSDTActivity::class.java)
+                        val intent: Intent = Intent(this,OTPActivity::class.java)
+                        intent.putExtra("sodienthoaiOTP",edtsodienthoai2.text.toString())
+                        intent.putExtra("manhinh","2")
                         intent.putExtra("userName",editusername.text)
                         startActivity(intent)
                         // luu vao sharepreference
@@ -101,6 +104,19 @@ class RegActivity : AppCompatActivity() ,IMethodLoginAnReg,IValidate{
 
                     // ...
                 }
+    }
+    private fun isValidPhone(phone: String): Boolean {
+        var check = false
+        check = if (!Pattern.matches("[a-zA-Z]+", phone)) {
+            if (phone.length < 10 || phone.length > 11) {
+                false
+            } else {
+                true
+            }
+        } else {
+            false
+        }
+        return check
     }
 
     override fun validate(): Boolean =(editusername.text.isNullOrEmpty() ||

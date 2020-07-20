@@ -8,7 +8,11 @@ data class WorkerData(
     var passwork: String?="",
     var gmail:String?="",
     var sdtThoSua: String?="" ,
-    var idLoaiTHo: Int= 0
+    var idLoaiTHo: Int= 0,
+    var fullname: String= "",
+    var kinhnghiem: String= "",
+    var xacthuc: Boolean= false,
+    var ketnoi: Boolean = false
 ){
 
     @Exclude

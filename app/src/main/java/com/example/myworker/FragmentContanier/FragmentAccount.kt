@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.PopupMenu
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
@@ -47,6 +44,10 @@ class FragmentAccount : Fragment() {
 
         val buttonMenu = rootView.findViewById<Button>(R.id.btnPopUp)
         val textviewTien =rootView.findViewById<TextView>(R.id.textviewTien)
+        val cardViewDoAn = rootView.findViewById<CardView>(R.id.cardView2)
+        val cardViewXebuyt = rootView.findViewById<CardView>(R.id.cardView3)
+        val cardViewXang = rootView.findViewById<CardView>(R.id.cardView4)
+        val btnChuyen = rootView.findViewById<LinearLayout>(R.id.btnChuyen)
 
         buttonMenu.setOnClickListener {
             val popup =
@@ -79,10 +80,7 @@ class FragmentAccount : Fragment() {
             clipChildren = false
             offscreenPageLimit = 3
         }
-        val cardViewDoAn = rootView.findViewById<CardView>(R.id.cardView2)
-        val cardViewXebuyt = rootView.findViewById<CardView>(R.id.cardView3)
-        val cardViewXang = rootView.findViewById<CardView>(R.id.cardView4)
-        val btnChuyen = rootView.findViewById<Button>(R.id.btnChuyen)
+
         btnChuyen.setOnClickListener {
 
         }

@@ -1,10 +1,8 @@
 package com.example.myworker.UserData
-
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.firebase.database.IgnoreExtraProperties
 import java.io.Serializable
-
 @IgnoreExtraProperties
 data class UserWorkAdd(
         var idDovat: String? = "",

@@ -17,6 +17,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_chon_sua.*
+import kotlinx.android.synthetic.main.itemlistdovat.*
 import java.io.IOException
 import java.io.Serializable
 import java.text.SimpleDateFormat
@@ -29,12 +30,11 @@ class ChonSuaActivity : AppCompatActivity() {
     private var lng: Double = 0.0
     private var check: Boolean= false
     private var check1: Boolean= false
-
+    private var diachiaa: String? =null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chon_sua)
         val sharedPref = getSharedPreferences("", Context.MODE_PRIVATE)
-        val sodienthoai = sharedPref.getString(getString(R.string.usernameSdt), "0907377780")
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
         val currentDateandTime: String = sdf.format(Date())
@@ -43,6 +43,9 @@ class ChonSuaActivity : AppCompatActivity() {
         val intent = intent
         val tenDoVat = intent.getStringExtra("tenDoVat")
         val soLan = intent.getStringExtra("soLan")
+        val giatien= intent.getLongExtra("giatien",10000)
+        Toast.makeText(this,giatien.toString(),Toast.LENGTH_LONG).show()
+
         Log.d("tenDoVat",tenDoVat)
         textView37.setText(tenDoVat)
         txtdvt1.setText(soLan)
@@ -61,7 +64,7 @@ class ChonSuaActivity : AppCompatActivity() {
         edtsolan.addTextChangedListener(inputTextWatcher)
 
 
-     //   getLocation()
+        getLocation()
 
         lnbg1.setOnClickListener {
             lnbg1.setBackgroundColor(Color.parseColor("#f3f3f3"))
@@ -73,12 +76,16 @@ class ChonSuaActivity : AppCompatActivity() {
             lnbg1.setBackgroundColor(Color.parseColor("#ffffff"))
             check= false
         }
+        val sharedPref1 = getSharedPreferences("SODIENTHOAI",Context.MODE_PRIVATE)
+        val sodienthoai = sharedPref1.getString(getString(R.string.usernameSdt), "0907377780")
+
         btnXacNhan.setOnClickListener {
             val intent = Intent(this, TimThoActivity::class.java)
-            var userFix: UserWorkAdd = UserWorkAdd("0",tenDoVat,true,check,editText2.text.toString()
-            ,sodienthoai,"đâsdasdas","1.1.","1m1",currentDateandTime,"",edtsolan.text.toString(),"")
+            var userFix: UserWorkAdd = UserWorkAdd("0",tenDoVat,false,check,editText2.text.toString()
+            ,sodienthoai,diachiaa.toString(),lat.toString(),lng.toString(),currentDateandTime,"",edtsolan.text.toString(),giatien.toString())
 
             intent.putExtra("userFix",userFix as Serializable)
+            intent.putExtra("donvitinh",soLan)
             startActivity(intent)
         }
 
@@ -106,7 +113,8 @@ class ChonSuaActivity : AppCompatActivity() {
                 var address = getAddress((distanceBetween))
                 idDiaChi.text = address
                 idDiaChi.text= getCompleteAddressString(lat,lng)
-                Toast.makeText(this,getCompleteAddressString(lat,lng),Toast.LENGTH_LONG).show()
+                diachiaa = getCompleteAddressString(lat,lng)
+              //  Toast.makeText(this,getCompleteAddressString(lat,lng),Toast.LENGTH_LONG).show()
             }
 
     }

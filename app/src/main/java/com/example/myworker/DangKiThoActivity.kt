@@ -10,9 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myworker.Contanst.IMethodLoginAnReg
 import com.example.myworker.Contanst.IValidate
-import com.example.myworker.UserData.DataLoaiSuaChua
-import com.example.myworker.UserData.DataXacMinh
-import com.example.myworker.UserData.WorkerData
+import com.example.myworker.UserData.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -31,6 +29,7 @@ class DangKiThoActivity : AppCompatActivity() , IValidate,IMethodLoginAnReg{
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private  var count: Int = 0
+    private  var sokinhnghiem: String =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dang_ki_tho)
@@ -61,6 +60,33 @@ class DangKiThoActivity : AppCompatActivity() , IValidate,IMethodLoginAnReg{
                 }
             }
         }
+
+        val kinhnghiem = resources.getStringArray(R.array.kinhnghiem)
+        if (edtkinhnghiem != null) {
+            val adapter = ArrayAdapter(this,
+                    android.R.layout.simple_spinner_item, kinhnghiem)
+            edtkinhnghiem.adapter = adapter
+
+            edtkinhnghiem.onItemSelectedListener = object :
+                    AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                    //Toast.makeText(this, getString(R.string.selected_item) + " " + "" + languages[position], Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(this@DangKiThoActivity,getString(R.string.selected_item)+ "" + languages[position], Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DangKiThoActivity,getString(R.string.selected_item)+ "" + position, Toast.LENGTH_SHORT).show()
+                    sokinhnghiem = kinhnghiem[position].toString()
+
+                    //  languages[position] = loaitho
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
+            }
+        }
+
+
+
         btnReg.setOnClickListener {
             if(validateEqual() && !validate()) {
                 RegFirebase()
@@ -89,10 +115,15 @@ class DangKiThoActivity : AppCompatActivity() , IValidate,IMethodLoginAnReg{
                         Toast.makeText(this,"Đăng kí thành công rồi nhen",Toast.LENGTH_LONG).show()
                         // luu vao database
                         val key = database.child("worker").push().key
-                         val userDatabase = WorkerData(key.toString(),editusername.text.toString(),edtpasswork.text.toString(),editemail.text.toString(),edtsodienthoai.text.toString(), count)
-                        val xacminh = DataXacMinh(key.toString(),false,0,0,false,false,false,false,false)
+                         val userDatabase = WorkerData(key.toString(),editusername.text.toString(),edtpasswork.text.toString(),editemail.text.toString(),edtsodienthoai.text.toString(), count,editfullname.text.toString(),sokinhnghiem,false)
+                        val xacminh = DataXacMinh(key.toString(),false,0,0,false,false,false,false,false,false)
                         database.child("worker").child(editusername.text.toString()).setValue(userDatabase)
+                        val thongtincanhan = DataChiTietThongTinTho("","","","")
+                        val userWorkAdd = UserWorkAdd("","",false,false,"","",
+                        "","","","","","","")
                         database.child("worker").child(editusername.text.toString()).child("thongtinxacminh").setValue(xacminh)
+                        database.child("worker").child(editusername.text.toString()).child("datatemp").setValue(userWorkAdd)
+
 
                         val sharedPref = getSharedPreferences("", Context.MODE_PRIVATE)
                         with (sharedPref.edit()) {

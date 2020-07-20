@@ -41,6 +41,9 @@ class LoginWorkerActivity : AppCompatActivity() ,IMethodLoginAnReg,IValidate{
         btnback.setOnClickListener {
             onBackPressed()
         }
+        textView7.setOnClickListener {
+            startActivity(Intent(this,DangKiThoActivity::class.java))
+        }
 
 
 
@@ -70,13 +73,24 @@ class LoginWorkerActivity : AppCompatActivity() ,IMethodLoginAnReg,IValidate{
                     {
                         cmndd = tcmndd
                         passworkk = tpassworkk
+
+                        val sharedPref1 = getSharedPreferences("IDTHO_1", Context.MODE_PRIVATE)
+                        with(sharedPref1.edit()){
+                            putString(getString(R.string.idTho),ds.getValue<WorkerData>(WorkerData::class.java)!!.idTho)
+                            commit()
+                        }
+                        Log.d("id11",idTho)
+
+
+
                         val sharedPref = getSharedPreferences("", Context.MODE_PRIVATE)
                         with (sharedPref.edit()) {
-                            putString(getString(R.string.idTho), idTho)
                             putString(getString(R.string.emailTho), tcmndd)
                             putString(getString(R.string.usernameTho), ds.getValue<WorkerData>(WorkerData::class.java)!!.userName.toString())
                             commit()
                         }
+                        Toast.makeText(baseContext, "Authentication success.",
+                                Toast.LENGTH_SHORT).show()
                         goMainMap()
                     }
 
@@ -85,9 +99,7 @@ class LoginWorkerActivity : AppCompatActivity() ,IMethodLoginAnReg,IValidate{
             override fun onCancelled(databaseError: DatabaseError) {}
         }
         usersdRef.addListenerForSingleValueEvent(eventListener)
-      //  val user = auth.currentUser
-        Toast.makeText(baseContext, "Authentication success.",
-                Toast.LENGTH_SHORT).show()
+
 
     }
 

@@ -78,10 +78,6 @@ class OTPActivity : AppCompatActivity() {
                     {
                         val usernameUser = sharedPref.getString(R.string.usernameUser.toString(), "loc dep trai")
 
-                        database.child("users").child("$userName").child("sodienthoai").setValue(sdtReceiver)
-
-
-
 
                         val intent = Intent(this, MethodLoginAnReg::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

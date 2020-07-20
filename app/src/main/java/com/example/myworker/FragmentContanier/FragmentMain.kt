@@ -16,6 +16,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.myworker.Mainthongtin
 import com.example.myworker.R
 import com.example.myworker.ThongTinLienHe
+import com.example.myworker.UserData.User
 import com.example.myworker.UserData.UserWorkAdd
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -24,9 +25,13 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_login_user2.*
 import java.io.IOException
 import java.text.DecimalFormat
 
@@ -61,22 +66,79 @@ class FragmentMain : Fragment(), GoogleMap.OnMarkerClickListener {
 
         val rootView = inflater.inflate(R.layout.homeframent, container, false)
         val sharedPref = this.requireActivity().getSharedPreferences("", Context.MODE_PRIVATE)
-        val usernameUser = sharedPref.getString(getString(R.string.usernameUser), "loc dep trai")
+        val usernameUser = sharedPref.getString(getString(com.example.myworker.R.string.usernameUser), "loc dep trai")
+        database = Firebase.database.reference
+
+        Log.d("ttt3", usernameUser)
+       // Log.d("ttt4", usersdt)
+        Toast.makeText(this.requireContext(), usernameUser,Toast.LENGTH_LONG).show()
+
 
         val btnOngNuoc = rootView.findViewById<ImageView>(R.id.btnOngNuoc)
         val btnODien = rootView.findViewById<ImageView>(R.id.btnODien)
         val userName = rootView.findViewById<TextView>(R.id.txtUserTho)
         userName.setText(usernameUser)
+        // load data
+
+        val usersdRef: DatabaseReference = database.child("users")
+        val eventListener: ValueEventListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (ds in dataSnapshot.children) {
+                    val username =ds.getValue<User>(User::class.java)!!.username;
+                    //  val temp = edtemail.text.toString()
+                    if(username.toString().equals(usernameUser))
+                    {
+                        Log.d("ttt3", ds.getValue<User>(User::class.java)!!.sodienthoai)
+                        //Toast.makeText(get, "load", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {}
+        }
+        usersdRef.addListenerForSingleValueEvent(eventListener)
+
+
+
+
+
+
+
+        val sharedPref1 = this.requireActivity().getSharedPreferences("IDSUA",Context.MODE_PRIVATE)
+        val sharedPref2 = this.requireActivity().getSharedPreferences("TENSUACHUATHO",Context.MODE_PRIVATE)
 
         btnOngNuoc.setOnClickListener {
             Toast.makeText(this.requireActivity(),"click",Toast.LENGTH_LONG).show()
             val intent = Intent(this.requireActivity(), Mainthongtin::class.java)
+            with (sharedPref1.edit())
+            {
+                putInt(getString(com.example.myworker.R.string.idsuachua),0)
+                commit()
+            }
+            with (sharedPref2.edit())
+            {
+                putString(getString(com.example.myworker.R.string.tensuachua),"Thợ sửa nước")
+                commit()
+            }
+
+
+
             intent.putExtra("id",0)
             startActivity(intent)
 
         }
         btnODien.setOnClickListener {
             Toast.makeText(this.requireActivity(),"click",Toast.LENGTH_LONG).show()
+            with (sharedPref1.edit())
+            {
+                putInt(getString(com.example.myworker.R.string.idsuachua),1)
+                commit()
+            }
+            with (sharedPref2.edit())
+            {
+                putString(getString(com.example.myworker.R.string.tensuachua),"Thợ sửa điện")
+                commit()
+            }
+
             val intent = Intent(this.requireActivity(), Mainthongtin::class.java)
             intent.putExtra("id",1)
             startActivity(intent)

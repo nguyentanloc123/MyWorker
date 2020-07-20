@@ -44,6 +44,7 @@ class RecyclerAdapter( private val dataSlides: List<DataLoaiSuaChua>) : Recycler
             val intent = Intent(context,ChonSuaActivity::class.java)
             intent.putExtra("tenDoVat",dataSlides[position].tenLoaiSuaChua)
             intent.putExtra("soLan",dataSlides[position].donViTinh)
+            intent.putExtra("giatien",dataSlides[position].giaTien)
            context.startActivity(intent)
         }
 

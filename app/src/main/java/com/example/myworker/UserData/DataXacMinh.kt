@@ -9,5 +9,6 @@ data class DataXacMinh(
         var banLyLich: Boolean,
         var banPhoToCMND: Boolean,
         var banPhoToHoKhau: Boolean,
-        var banPhoToBangCap: Boolean
+        var banPhoToBangCap: Boolean,
+        var xacMinh: Boolean
 )
