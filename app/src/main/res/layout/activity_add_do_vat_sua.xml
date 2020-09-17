@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddDoVatSua">
+    tools:context=".Screen.Fix.AddDoVatSua">
     <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/navigator_back" android:id="@+id/navigator_back"></include>
     <TextView
         android:textStyle="bold"

@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bestsoft32.tt_fancy_gif_dialog_lib.TTFancyGifDialog
-import com.example.myworker.MethodLoginAnReg
+import com.example.myworker.Screen.Login.MethodLoginAnReg
 import com.example.myworker.R
 
 class FragmentSetting : Fragment(){

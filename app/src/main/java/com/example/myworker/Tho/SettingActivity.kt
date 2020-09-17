@@ -6,8 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.bestsoft32.tt_fancy_gif_dialog_lib.TTFancyGifDialog
-import com.example.myworker.LoginWorkerActivity
-import com.example.myworker.MethodLoginAnReg
+import com.example.myworker.Screen.Login.LoginWorkerActivity
 import com.example.myworker.R
 import kotlinx.android.synthetic.main.activity_setting.*
 

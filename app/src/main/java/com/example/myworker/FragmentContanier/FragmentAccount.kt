@@ -12,10 +12,10 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
-import com.example.myworker.BarnCodeActivity
+import com.example.myworker.Screen.OTP.BarnCodeActivity
 import com.example.myworker.R
 import com.example.myworker.UserData.ImageCoffeSlide
-import com.example.myworker.ViewPagerAapter
+import com.example.myworker.AdapterComment.ViewPagerAapter
 
 
 class FragmentAccount : Fragment() {
@@ -86,13 +86,16 @@ class FragmentAccount : Fragment() {
         }
 
         cardViewDoAn.setOnClickListener {
-            startActivity(Intent(this.requireContext(),BarnCodeActivity::class.java))
+            startActivity(Intent(this.requireContext(),
+                BarnCodeActivity::class.java))
         }
         cardViewXebuyt.setOnClickListener {
-            startActivity(Intent(this.requireContext(),BarnCodeActivity::class.java))
+            startActivity(Intent(this.requireContext(),
+                BarnCodeActivity::class.java))
         }
         cardViewXang.setOnClickListener {
-            startActivity(Intent(this.requireContext(),BarnCodeActivity::class.java))
+            startActivity(Intent(this.requireContext(),
+                BarnCodeActivity::class.java))
         }
 
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin)

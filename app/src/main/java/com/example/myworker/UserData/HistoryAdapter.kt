@@ -1,17 +1,12 @@
 package com.example.myworker.UserData
 
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myworker.AddDoVatSua
-import com.example.myworker.MainMap
 import com.example.myworker.R
 
 class HistoryAdapter( private val dataSlides: List<UserWorkAdd>) : RecyclerView.Adapter<HistoryAdapter.HistoryAdapterViewHolder>(){

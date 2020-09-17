@@ -5,7 +5,7 @@
     android:background="#EBEBEB"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NapTienVaoVi">
+    tools:context=".Screen.Danhsach.NapTienVaoVi">
     <ImageView
         android:background="@color/design_default_color_primary"
         android:id="@+id/roundtangle"

@@ -13,9 +13,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-import com.example.myworker.Mainthongtin
+import com.example.myworker.Screen.Danhsach.Mainthongtin
 import com.example.myworker.R
-import com.example.myworker.ThongTinLienHe
+import com.example.myworker.Screen.Danhsach.ThongTinLienHe
 import com.example.myworker.UserData.User
 import com.example.myworker.UserData.UserWorkAdd
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -31,7 +31,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_login_user2.*
 import java.io.IOException
 import java.text.DecimalFormat
 
